@@ -40,10 +40,10 @@ public class SortTest {
 			List<Integer> l = new ArrayList<>();
 			Integer m = list.get(0);
 			List<Integer> h = new ArrayList<>();
-			for (int i : list) {
+			for (int i : list.subList(1, list.size())) {
 				if (i > m)
 					h.add(i);
-				if (i < m)
+				else
 					l.add(i);
 			}
 			sorted.addAll(sort(l));
