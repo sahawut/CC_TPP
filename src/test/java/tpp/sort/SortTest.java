@@ -36,18 +36,18 @@ public class SortTest {
 		if (list.size() == 0)
 			return list;
 		else {
-			Integer l = null;
+			List<Integer> l = new ArrayList<>();
 			Integer m = list.get(0);
-			Integer h = null;
+			List<Integer> h = new ArrayList<>();
 			for (int i : list) {
 				if (i > m)
-					h = i;
+					h.add(i);
 				if (i < m)
-					l = i;
+					l.add(i);
 			}
-			if (l != null) sorted.add(l);
+			sorted.addAll(sort(l));
 			sorted.add(m);
-			if (h != null) sorted.add(h);
+			sorted.addAll(sort(h));
 		}
 
 		return sorted;
