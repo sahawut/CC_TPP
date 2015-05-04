@@ -28,6 +28,16 @@ public class SortTest {
 			assertTrue(sorted.get(i) <= sorted.get(i + 1));
 	}
 
+	private void sortSortedList(int n) {
+		List<Integer> unsorted = new ArrayList<Integer>();
+		for (int i = 0; i < n; i++)
+			unsorted.add((int) (Math.random() * 10000.0));
+		List<Integer> sorted = sort(unsorted);
+		sort(sorted);
+		for (int i = 0; i < n - 1; i++)
+			assertTrue(sorted.get(i) <= sorted.get(i + 1));
+	}
+
 	@Test
 	public void sortings() throws Exception {
 		assertSorted(intList(), intList());
@@ -41,6 +51,11 @@ public class SortTest {
 		assertSorted(intList(3, 2, 1), intList(1, 2, 3));
 		assertSorted(intList(3, 2, 2, 1), intList(1, 2, 2, 3));
 		sortBigList(1000000);
+	}
+	
+	@Test
+	public void sortSortedList() throws Exception {
+		sortSortedList(500000);
 	}
 
 	private List<Integer> sort(List<Integer> list) {
