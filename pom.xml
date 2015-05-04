@@ -5,6 +5,17 @@
 	<artifactId>CC_TPP</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
+	<plugins>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<configuration>
+				<source>1.7</source>
+				<target>1.7</target>
+			</configuration>
+		</plugin>
+	</plugins>
+
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -13,5 +24,4 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
 </project>
