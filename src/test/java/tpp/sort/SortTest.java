@@ -27,15 +27,28 @@ public class SortTest {
 	}
 
 	private List<Integer> sort(List<Integer> list) {
-		List<Integer> sorted = new ArrayList<>(); // Add Computation transformation
-		if (list.size() <= 1) // Split Flow transformation
+		List<Integer> sorted = new ArrayList<>();
+		if (list.size() <= 1)
 			return list;
-		if (list.get(0) > list.get(1)) {  // Split Flow transformation
-			sorted.add(list.get(1)); // Assign transformation
-			sorted.add(list.get(0)); // Assign transformation
-		} else {  // Split Flow transformation
-			sorted.add(list.get(0)); // Assign transformation
-			sorted.add(list.get(1)); // Assign transformation
+		else if (list.size() == 2) { // Split Flow Transformation
+			if (list.get(0) > list.get(1)) {
+				sorted.add(list.get(1));
+				sorted.add(list.get(0));
+			} else {
+				sorted.add(list.get(0));
+				sorted.add(list.get(1));
+			}
+		}
+		else if (list.size() == 3) { // Split Flow Transformation
+			if (list.get(1) > list.get(2)) { // Split Flow Transformation
+				sorted.add(list.get(2)); // Assign Transformation
+				sorted.add(list.get(0)); // Assign Transformation
+				sorted.add(list.get(1)); // Assign Transformation
+			} else {
+				sorted.add(list.get(1)); // Assign Transformation
+				sorted.add(list.get(0)); // Assign Transformation
+				sorted.add(list.get(2)); // Assign Transformation
+			}
 		}
 		return sorted;
 	}
