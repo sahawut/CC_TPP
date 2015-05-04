@@ -3,6 +3,7 @@ package tpp.sort;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -25,6 +26,16 @@ public class SortTest {
 	}
 
 	private List<Integer> sort(List<Integer> list) {
-		return list;
+		List<Integer> sorted = new ArrayList<>(); // Add Computation transformation
+		if (list.size() <= 1) // Split Flow transformation
+			return list;
+		if (list.get(0) > list.get(1)) {  // Split Flow transformation
+			sorted.add(list.get(1)); // Assign transformation
+			sorted.add(list.get(0)); // Assign transformation
+		} else {  // Split Flow transformation
+			sorted.add(list.get(0)); // Assign transformation
+			sorted.add(list.get(1)); // Assign transformation
+		}
+		return sorted;
 	}
 }
