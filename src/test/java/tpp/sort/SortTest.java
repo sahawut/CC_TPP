@@ -3,7 +3,6 @@ package tpp.sort;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -18,7 +17,7 @@ public class SortTest {
 	}
 
 	private List<Integer> sort(List<Integer> list) {
-		return new ArrayList<>();
+		return list;
 	}
 
 	private List<Integer> intList(Integer... ints) {
