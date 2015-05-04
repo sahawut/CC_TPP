@@ -33,6 +33,13 @@ public class SortTest {
 				list.set(1, temp); // Assign transformation
 			}
 		}
+		if (list.size() > 2) { // Split Flow transformation
+			if (list.get(1) > list.get(2)) { // Split Flow transformation
+				Integer temp = list.get(1); // Computation transformation
+				list.set(1, list.get(2)); // Assign transformation
+				list.set(2, temp); // Assign transformation
+			}
+		}
 		return list;
 	}
 }
