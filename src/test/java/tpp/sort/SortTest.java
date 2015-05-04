@@ -26,19 +26,14 @@ public class SortTest {
 	}
 
 	private List<Integer> sort(List<Integer> list) {
-		if (list.size() > 1) { // Split Flow transformation
-			if (list.get(0) > list.get(1)) { // Split Flow transformation
-				Integer temp = list.get(0); // Computation transformation
-				list.set(0, list.get(1)); // Assign transformation
-				list.set(1, temp); // Assign transformation
+		int index = 0;
+		while (list.size() > index + 1) { // If to While transformation
+			if (list.get(index) > list.get(index + 1)) {
+				Integer temp = list.get(index);
+				list.set(index, list.get(index + 1));
+				list.set(index + 1, temp);
 			}
-		}
-		if (list.size() > 2) { // Split Flow transformation
-			if (list.get(1) > list.get(2)) { // Split Flow transformation
-				Integer temp = list.get(1); // Computation transformation
-				list.set(1, list.get(2)); // Assign transformation
-				list.set(2, temp); // Assign transformation
-			}
+			index++;
 		}
 		return list;
 	}
