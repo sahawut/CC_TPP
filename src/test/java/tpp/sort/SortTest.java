@@ -12,8 +12,12 @@ import org.junit.Test;
 public class SortTest {
 	@Test
 	public void sortings() throws Exception {
-		assertThat(sort(intList()), is(intList()));
-		assertThat(sort(intList(1)), is(intList(1)));
+		assertSorted(intList(), intList());
+		assertSorted(intList(1), intList(1));
+	}
+
+	private void assertSorted(List<Integer> unsorted, List<Integer> sorted) {
+		assertThat(sort(unsorted), is(sorted));
 	}
 
 	private List<Integer> sort(List<Integer> list) {
