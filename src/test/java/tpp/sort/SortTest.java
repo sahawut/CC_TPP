@@ -31,7 +31,7 @@ public class SortTest {
 		List<Integer> sorted = new ArrayList<>();
 		if (list.size() == 1)
 			sorted.add(list.get(0));
-		else if (list.size() == 2) { // Split Flow Transformation
+		else if (list.size() == 2) {
 			if (list.get(0) > list.get(1)) {
 				sorted.add(list.get(1));
 				sorted.add(list.get(0));
@@ -40,17 +40,21 @@ public class SortTest {
 				sorted.add(list.get(1));
 			}
 		}
-		else if (list.size() == 3) { // Split Flow Transformation
-			if (list.get(1) > list.get(2)) { // Split Flow Transformation
-				sorted.add(list.get(2)); // Assign Transformation
-				sorted.add(list.get(0)); // Assign Transformation
-				sorted.add(list.get(1)); // Assign Transformation
-			} else {
-				sorted.add(list.get(1)); // Assign Transformation
-				sorted.add(list.get(0)); // Assign Transformation
-				sorted.add(list.get(2)); // Assign Transformation
+		else if (list.size() == 3) {
+			int l = 0;
+			int m = list.get(0);
+			int h = 0;
+			for (int i : list) {
+				if (i > m)
+					h = i;
+				if (i < m)
+					l = i;
 			}
+			sorted.add(l);
+			sorted.add(m);
+			sorted.add(h);
 		}
+
 		return sorted;
 	}
 }
