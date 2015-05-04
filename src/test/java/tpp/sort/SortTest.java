@@ -25,6 +25,13 @@ public class SortTest {
 	}
 
 	private List<Integer> sort(List<Integer> list) {
+		if (list.size() > 1) { // Split Flow transformation
+			if (list.get(0) > list.get(1)) { // Split Flow transformation
+				Integer temp = list.get(0); // Computation transformation
+				list.set(0, list.get(1)); // Assign transformation
+				list.set(1, temp); // Assign transformation
+			}
+		}
 		return list;
 	}
 }
